@@ -1,0 +1,219 @@
+body{
+  margin: 0px;
+}
+.spinnerLoading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color:rgb(127, 158, 80);
+  margin: 0;
+  overflow: hidden;
+}
+
+.spinner {
+  display: grid;
+  grid-template-columns: repeat(3, 20px);
+  grid-template-rows: repeat(3, 20px);
+  grid-gap: 5px;
+  justify-items: center;
+  align-items: center;
+}
+
+.square {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgb(161, 161, 161);
+  animation: scaleInOut 1s infinite;
+}
+
+@keyframes scaleInOut {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.7);
+  }
+}
+
+.bgImage{
+  height: 100%;
+  width: -webkit-fill-available;
+  position: fixed;
+  filter: blur(1px);
+}
+.head {
+  margin-bottom: 0px;
+  height: 56px;
+  box-shadow: 0px 0px 50px black;
+  background-color: rgb(146, 187, 85);
+  z-index: 1;
+  position: absolute;
+  width: -webkit-fill-available;
+}
+.col-div-6 {
+  margin-top: 10px;
+display: flex;
+width: 50%;
+float: left;
+}
+.col-div-6-2 {
+  margin-top: 5px;
+display: flex;
+flex-direction: row-reverse;
+width: 50%;
+float: left;
+}
+.profile {
+  /* margin-top: ; */
+display: inline;
+float: right;
+width: auto;
+}
+.pro-img {
+float: left;
+width: 40px;
+margin-top: 5px;
+}
+
+.form-box{
+  display: inline-flex;
+  margin-top: 113px;
+  margin-left: 35%;
+  position: absolute;
+  width: 400px;
+  height: 495px;
+  background-color:rgb(146 187 85 / 68%);;
+  box-shadow: 2px 2px 7px 2px rgb(9, 36, 19);
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  display: block;
+  /*justify-content: center;
+  align-items: center; */
+
+
+}
+.bookNowImage{
+  width: 50%;
+}
+
+.bookingInfo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  font-weight: 550;
+  color: rgb(43 54 42);;
+}
+.inputBox{
+  background: rgb(182, 204, 148);
+  border: 1px solid rgb(98, 158, 98);
+  padding: 8px;
+  border-radius: 4px;
+  width: 110px;
+}
+.checkAvailabilityBtn{
+  font-weight: 700;
+  height: 40px;
+  width: 225px;
+  border: 2px solid #67a767;
+  font-size: 18px;
+  margin-top: 10px;
+  color: white;
+  border-radius: 5px;
+  background: rgb(56 129 2);
+  box-shadow: 2px 2px 2px 2px #275a05;
+}
+.checkAvailabilityBtn:hover{
+  color: black;
+  background-color: rgb(182, 204, 148);
+  transition: 1s;
+}
+
+#popupActionThree{
+  position:fixed;
+  top: 25%;
+  left: 33%;
+  /* transform: translate(-50%,-50%); */
+  width: 400px;
+  /* height: 500px; */
+  padding: 50px;
+  box-shadow: 0 5px 30px rgba(0,0,0,.30);
+  background: #ffffff;
+  visibility: hidden;
+  opacity: 0;
+  transition: .25s;
+  animation: popupActionThreeOut 1.5s;
+}
+#popupActionThree.active{
+  top: 25% ;
+  left: 33%;
+  visibility: visible;
+  opacity: 1;
+  /* transition: .5s; */
+  border: 2px solid #beb8b8;
+  border-radius: 6px;
+  background-color: #f8f7f7;
+  border: 2px solid #d1d1d1;
+  box-shadow: 2px 2px 2px 2px black;
+  animation: popupActionThreeIn 1.5s;
+}
+@keyframes popupActionThreeOut{
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+@keyframes popupActionThreeIn{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.popHeading{
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+.btn{
+  border: 2px solid #beb8b8;
+  border-radius: 6px;
+  background-color: #c2c1c1;
+  border: 2px solid #2c7a2f;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+}
+.btn:hover
+{
+  color: whitesmoke;
+  background-color: #67a767;
+  cursor: pointer;
+}
+#blur.active
+{
+  filter: blur(10px);
+  z-index: -1;
+  user-select: none;
+  pointer-events: none;
+}
+.animate{
+  animation: animate 3s;
+}
+@keyframes animate{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}

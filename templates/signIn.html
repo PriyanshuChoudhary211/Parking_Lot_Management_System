@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/signInStyle.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container right-panel-active">
+        <!-- Sign Up
+        <div class="container__form container--signup">
+            <form method="post" class="form" id="form1">
+                <h2 class="form__title">Sign Up</h2>
+                <input type="text" id="name" name="username" placeholder="User" class="input" />
+                <input type="email" id="email" name="email" placeholder="Email" class="input" />
+                <input type="password" id="password" name="password" placeholder="Password" class="input" />
+                <a href="temp.html"><button type="submit" class="btn">Sign Up</button></a>
+            </form>
+        </div>
+     -->
+        <!-- Sign In -->
+        <div class="container__form container--signin">
+            <form method="post" class="form" id="form2">
+                <h2 class="form__title">Sign In</h2>
+                <input type="email" name="email" placeholder="Email" class="input" id="email" />
+                <input type="password" name="password" placeholder="Password" class="input" id="pass" />
+                <div class="login">
+                    <input type="radio" name="login" id="user" class="login" /> <label for="user" name="login">User</label>
+                    <input type="radio" name="login" id="admin" class="login" style="margin-left: 20px;"/> <label for="admin" name="login">Admin</label>
+                 </div>
+                <a href="#" class="link">Forgot your password?</a>
+                <button type="submit" onclick="adminCheck()"  class="btn">Sign In</button>
+            </form>
+        </div>
+    
+        <!-- Overlay -->
+        <div class="container__overlay">
+            <div class="overlay">
+                <!-- <div class="overlay__panel overlay--left">
+                    <button class="btn" id="signIn">Sign In</button>
+                </div> -->
+                <div class="overlay__panel overlay--right">
+                   <a href="/" style="background: transparent; text-decoration: none; color:white"><button class="btn" id="signUp">Sign Up</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../static/js/signInScript.js"></script>
+</html>

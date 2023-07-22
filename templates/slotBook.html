@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/userStyle.css">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>User Dashboard</title>
+
+</head>
+<body>
+    <!-- comment out later -->
+    <div class="spinnerLoading">
+        <div class="spinner" id="loading">
+            <div class="square" id="s1"></div>
+            <div class="square" id="s2"></div>
+            <div class="square" id="s3"></div>
+            <div class="square" id="s4"></div>
+            <div class="square" id="s5"></div>
+            <div class="square" id="s6"></div>
+            <div class="square" id="s7"></div>
+            <div class="square" id="s8"></div>
+            <div class="square" id="s9"></div>
+        </div>
+    </div>
+
+    <!-- nav bar begin -->
+    <!-- <div id="main"> -->
+    <div>
+        <div class="head">
+          <div class="col-div-6">
+                <i
+                    class="uil uil-angle-right-b"
+                    style="color: white; font-size: 30px"
+                ></i>
+                <span
+                    style="font-size: 30px; cursor: pointer; color: white; margin-left:15px"
+                    class="nav"
+                    >
+                    Welcome...
+                </span>
+          </div>
+          
+          <div class="col-div-6-2">
+                <div class="profile">
+                    <img
+                        src="../static/images/logo.png"
+                        class="pro-img"
+                        style="margin-right: 15px; margin-top: 0px"
+                    />
+                    <p
+                        style="
+                        width: 300px;
+                        color: white;
+                        margin-top: 0px;
+                        font-size: 21px;
+                        "
+                        >
+                        <span id="userName"></span><br /><span><a href="signIn" style="background: transparent;"> Logout </a></span>
+                    </p>
+                </div>
+          </div>
+        </div>
+        <!-- <hr style="opacity: 0.5; width: 99%; margin-bottom: 0px" /> -->
+      <!-- nav bar end -->
+    <!-- </div> -->
+    <img src="../static/images/parkingimage.png" id="blur" class="bgImage animate" alt="" srcset="">
+    <!-- <div class="form-box animate" id="userBookStatus">
+            <p style="text-align: center;"><img src="../static/images/NicePng_book-now-png_2167062.png" class="bookNowImage" alt="" srcset=""></p>
+            <div class="bookingInfo">
+                <label for="date">Enter Booking Date:
+                <input type="date" placeholder="Enter Your date" id="date" class="inputBox"></label> <br>
+                <label for="timeIn">Enter check-in time:
+                <input type="time" placeholder="Enter check-in time" id="timeIn"class="inputBox"></label><br>
+                <label for="timeOut">Enter check-out time:
+                <input type="time" placeholder="Enter check-out time" id="timeOut" class="inputBox"></label><br>
+                <button type="submit" class="checkAvailabilityBtn" onclick="checkStatus()">Check Availability</button>
+            </div>
+    </div> -->
+    <form method="post">
+        <div class="form-box" id="userBooking" style="transition: 2s;">
+            <div class="bookingInfo">
+                <p><h2 style="margin:0px; color: rgb(3, 27, 3);" >Slot Availabile! Book Now</h2></p>
+                <span id="duration" style="    font-weight: bold;
+                margin-bottom: 20px;
+                color: #880000;
+                font-size: 20px;"></span>
+                <label for="firstName">First Name:
+                <input type="text" name="fName" placeholder="Enter first name" id="firstName" class="inputBox"></label> <br>
+                <label for="lastName">Last Name:
+                <input type="text" name="lName" placeholder="Enter last name" id="lastName" class="inputBox"></label> <br>
+                <label for="carPlateNum">Car Plate Number:
+                <input type="text" name="carNo" placeholder="XX XX XX XXXX" id="carPlateNum" class="inputBox"></label><br>
+                <label for="phoneNumber">Phone Number:
+                <input type="number" name="phoneNumber" placeholder="Enter phone number" id="phoneNumber" class="inputBox"></label><br>
+                <p id="price" style="font-size: 23px;margin: 14px;"> Price:&#8377 <span id="amount"></span></p>
+                <button type="submit" class="checkAvailabilityBtn" onclick="payAndBookSlot()">Pay and Book Slot</button>
+            </div>
+        </div>
+    </form>
+
+    <div id="popupActionThree">
+        <p style="text-align: center;"><img src="../static/images/right.png" style="width:118px" alt="" srcset=""></p> 
+        <h3 class="popHeading">Payment Done!! Slot Booked Successfully</h3>
+        <button class="btn" onclick="payAndBookSlotTwo()" style="background: rgb(56 129 2);padding:10px;box-shadow: 2px 2px 2px 2px #6c7963; align-items: center; margin-left:42%">Home</button>
+    </div> 
+ </div>
+   
+</body>
+
+<script src="../static/js/userScript.js"></script>
+<script>
+   /* function $_GET(q,s) {
+        s = (s) ? s : window.location.search;
+        var re = new RegExp('&amp;'+q+'=([^&amp;]*)','i');
+        return (s=s.replace(/^\?/,'&amp;').match(re)) ?s=s[1] :s='';
+    }  */
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const amount = urlParams.get('amount');
+    var t1=urlParams.get('t1')
+    var m1=urlParams.get('m1')
+    var t2=urlParams.get('t2')
+    var m2=urlParams.get('m2')
+    var name=urlParams.get('name')
+    console.log(amount);
+
+   /* var value = $_GET('amount');
+    var t1=$_GET('t1');
+    var m1=$_GET('m1');
+    var t2=$_GET('t2');
+    var m2=$_GET('m2'); */
+    if(t1<=9) t1='0'+t1;
+    if(m2<=9) m1='0'+m1;
+    if(t2<=9) t2='0'+t2;
+    if(m2<=9) m2='0'+m2;
+    var t='From '+t1+':'+m1+' to '+t2+':'+m2;
+    document.getElementById('amount').innerHTML=amount;
+    document.getElementById('duration').innerHTML=t;
+    document.getElementById('userName').innerHTML=name
+
+</script>
+</html>

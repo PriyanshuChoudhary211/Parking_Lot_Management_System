@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="../static/css/adminStyle.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script>
+      var userList='{{ userList }}';
+      userList = userList.replaceAll('&#34;','"');
+      userList = JSON.parse(userList);
+      listOfDates='{{ lastSevenDays }}' 
+      listOfDates=listOfDates.replaceAll('&#39;','"')
+      listOfDates=JSON.parse(listOfDates)
+    </script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div id="mySidenav" class="sidenav">
+      <img src="../static/images/logo.png" class="pro-img img_pro" />
+      <br>
+      <p class="logo">Priyanshu Choudhary</p>
+      <div class="report">
+        <div>
+        <a href="/allUsers" style="background: transparent;"><i class='bx bxs-download icon'></i>
+        <span class="logos">All Users</span></a>
+      </div>
+      <div>
+        <a href="/slotReport" style="background: transparent;"><i class='bx bxs-download icon'></i>
+        <span class="logos">Overall Report</span></a>
+      </div>
+      <div>
+        <a href="/carArea" style="background: transparent;"><span style="    color: white;
+          display: inline-block;">&#128065; </span>
+        <span class="logos">View Parking Area</span></a>
+      </div>
+      </div>
+
+      <div style="margin-top: auto; margin-bottom: 60px;">
+        <form action="/signIn"> <button type="submit" class="signOutBtn">Sign Out</button></form>
+      </div>
+    </div>
+    <div id="main">
+      <div class="head">
+        <div class="col-div-6">
+          <span
+            style="font-size: 30px; cursor: pointer; color: white"
+            class="nav"
+            >&#9776; Dashboard</span
+          >
+          <span
+            style="font-size: 30px; cursor: pointer; color: white"
+            class="nav2"
+            >&#9776; Dashboard</span
+          >
+        </div>
+
+        <div class="col-div-6">
+          <div class="profile">
+            <img src="../static/images/logo.png" class="pro-img" />
+            <p>Priyanshu Choudhary<span>Admin</span></p>
+          </div>
+        </div>
+        <hr style="opacity: 0.6;">
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="clearfix"></div>
+      <br />
+
+      <div class="col-div-3">
+        <div class="box" >
+         
+          <p id="showUsers"><span>Total Slots : 100</span>
+          <br>
+          <span>Slot Booked : 70</span>
+          <br>
+          <span>Remaining Slot : 30</span></p> 
+          <!-- <i class="fa fa-users box-icon"></i> -->
+          <div class="col-div-4">
+            <!-- <div class="box-4"> -->
+              <!-- <div class="content-box">     -->
+                <div class="circle-wrap">
+                  <div class="circle">
+                    <div class="mask full">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="mask half">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="inside-circle" id="percentage"></div>
+                  </div>
+                <!-- </div> -->
+              <!-- </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-div-3">
+        <div class="box chart">  
+          <!-- Add Chart -->
+          <canvas id="myChart" style="width: 100%; display: inline;" ></canvas>
+          <!-- <i class="fa fa-users box-icon"></i> -->
+        </div>
+      </div>
+      <!-- <div class="col-div-3">
+		<div class="box">
+			<p>99<br/><span>Orders</span></p>
+			<i class="fa fa-shopping-bag box-icon"></i>
+		</div>
+	</div>
+	<div class="col-div-3">
+		<div class="box">
+			<p>78<br/><span>Tasks</span></p>
+			<i class="fa fa-tasks box-icon"></i>
+		</div>
+	</div> -->
+      <div class="clearfix"></div>
+      <br /><br />
+      <div class="col-div-8">
+        <div class="box-8">
+          <div class="searchBar">
+            <!-- Search Bar JS -->
+           
+            <label for="user">  <i class='bx bx-search-alt-2' style="font-size: 40px; color:antiquewhite"></i> </label>
+            <input type="text" class="inputUser" id="user" placeholder="Username">
+          </div>
+          <div class="content-box" id="table">
+            <!-- <table >
+              <tr>
+                <th>S.No.</th>
+                <th>Name</th>
+                <th>Best Time</th>
+                <th>Match Played</th>
+              </tr>
+              <tr>
+                <td>11</td>
+                <td>Island Trading</td>
+                <td>Helen Bennett</td>
+                <td>UK</td>
+              </tr>
+            </table> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="clearfix"></div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- <script src="js/my_charts.js"></script> -->
+    <script src="../static/js/adminScript.js"></script>
+    
+    <script>
+      $(".nav").click(function () {
+        $("#mySidenav").css("width", "70px");
+        $("#main").css("margin-left", "70px");
+        $(".logo").css("visibility", "hidden");
+        $(".logos").css("visibility", "hidden");
+        $(".logo span").css("visibility", "visible");
+        $(".logo span").css("margin-left", "-10px");
+        $(".icon-a").css("visibility", "hidden");
+        $(".icons").css("visibility", "visible");
+        $(".icon").css("visibility", "hidden");
+        $(".img_pro").css("visibility", "hidden");
+        $(".signOutBtn").css("visibility", "hidden");
+        $(".icons").css("margin-left", "-8px");
+        $(".nav").css("display", "none");
+        $(".nav2").css("display", "block");
+      });
+
+      $(".nav2").click(function () {
+        $("#mySidenav").css("width", "300px");
+        $("#main").css("margin-left", "300px");
+        $(".logo").css("visibility", "visible");
+        $(".logos").css("visibility", "visible");
+        $(".icon-a").css("visibility", "visible");
+        $(".img_pro").css("visibility", "visible");
+        $(".icons").css("visibility", "visible");
+        $(".icon").css("visibility", "visible");
+        $(".signOutBtn").css("visibility", "visible");
+        $(".nav").css("display", "block");
+        $(".nav2").css("display", "none");
+      });
+    </script>
+    
+  </body>
+</html>

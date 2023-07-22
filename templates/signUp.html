@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/signUpStyle.css">
+
+    <!-- <script>
+        function changeUrl(){
+            window.location.href="http://127.0.0.1:5000/temp"
+        }    
+    </script> -->
+    <title>Document</title>
+</head>
+<body>
+    <div class="container right-panel-active">
+        <!-- Sign Up -->
+
+        <div class="container__form container--signup">
+            <form method="post" class="form" id="form1">
+                {% if status == 1 %}
+                    <h2 style="font-size: 20px;color: red;">Account already exits.<br> Please SignIn...</h2>
+                {% endif %}
+                <h2 class="form__title">Sign Up</h2>
+                <input type="text" id="name" name="username" placeholder="User" class="input" />
+                <input type="email" id="email" name="email" placeholder="Email" class="input" />
+                <input type="password" id="password" name="password" placeholder="Password" class="input" />
+                <button type="submit" class="btn">Sign Up</button>
+            </form>
+        </div>
+    
+        <!-- Sign In -->
+        <!-- <div class="container__form container--signin">
+            <form action="../UserDashboard/user.html" class="form" id="form2">
+                <h2 class="form__title">Sign In</h2>
+                <input type="email" placeholder="Email" class="input" />
+                <input type="password" placeholder="Password" class="input" />
+                <div class="login">
+                    <input type="radio" name="login" id="user" class="login" /> <label for="user" name="login">User</label>
+                    <input type="radio" name="login" id="admin" class="login" style="margin-left: 20px;"/> <label for="admin" name="login">Admin</label>
+                 </div>
+                <a href="#" class="link">Forgot your password?</a>
+                <button type="submit" class="btn"><a href="../UserDashboard/user.html" style="background: transparent; text-decoration: none; color:white"> Sign In</a></button></a>
+            </form>
+        </div> -->
+    
+        <!-- Overlay -->
+        <div class="container__overlay">
+            <div class="overlay">
+                <div class="overlay__panel overlay--left">
+                    <a href="signIn" style="background: transparent; text-decoration: none; color:white"><button class="btn" id="signIn">Sign In</button></a>
+                </div>
+                <!-- <div class="overlay__panel overlay--right">
+                    <button class="btn" id="signUp">Sign Up</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../static/js/signUpScript.js"></script>
+
+</html>
